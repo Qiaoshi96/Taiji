@@ -21,9 +21,10 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".Scrollviewconfident">
-        </activity>
+        <activity android:name=".Scrollviewconfident"></activity>
         <activity android:name=".SmartRefresh">
+        </activity>
+        <activity android:name=".PictureAvtivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

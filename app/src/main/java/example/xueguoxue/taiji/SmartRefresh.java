@@ -22,18 +22,26 @@ import java.util.List;
 public class SmartRefresh extends AppCompatActivity {
     private RecyclerView recycle;
     private SmartRefreshLayout refresh;
-    private ImageView gif_image;
+    //private ImageView gif_image;
     private List<String> list=new ArrayList<>();
+    private ImageView gif_image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_refresh);
         recycle=findViewById(R.id.recycle);
         refresh=findViewById(R.id.refresh);
-        gif_image=findViewById(R.id.gif_image);
+        gif_image = findViewById(R.id.gif_image);
         //加载动态图
         Glide.with(this).load(R.mipmap.smile).into(gif_image);
         getData();
+        get();
+
+    }
+
+    private void get() {
         LinearLayoutManager manager = new LinearLayoutManager(SmartRefresh.this);
         recycle.setLayoutManager(manager);
         final MyAdapter myAdapter = new MyAdapter(list, SmartRefresh.this);
@@ -46,6 +54,7 @@ public class SmartRefresh extends AppCompatActivity {
         refresh.setDisableContentWhenLoading(true);
         refresh.setEnableFooterTranslationContent(false);
         //下拉加载更多
+        //折耳根
         refresh.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
@@ -63,9 +72,11 @@ public class SmartRefresh extends AppCompatActivity {
             }
         });
     }
-    private void getData(){
-        for (int i=0;i<50;i++){
-            list.add("匆匆那些错过的很多很多"+i);
+
+
+    private void getData() {
+        for (int i = 0; i < 50; i++) {
+            list.add("匆匆那些错过的很多很多" + i);
         }
     }
 }
